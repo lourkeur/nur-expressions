@@ -2,6 +2,7 @@
   lib,
   buildPythonApplication,
   fetchFromGitHub,
+  isPy3k,
   flask,
   stem,
   pyqt5,
@@ -22,6 +23,7 @@ buildPythonApplication {
     sha256 = "1lx21p12888qnbhsyin4lrnn4xizb39ldk77r71y53hn8mfxi54z";
   };
 
+  disable = !isPy3k;
   propagatedBuildInputs = [
     flask
     stem
