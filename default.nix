@@ -8,14 +8,19 @@
 
 { pkgs ? import <nixpkgs> {} }:
 
-{
+rec {
   # The `lib`, `modules`, and `overlay` names are special
   lib = import ./lib { inherit pkgs; }; # functions
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  python3Packages.flask-httpauth = pkgs.python3Packages.callPackage ./pkgs/python/flask-httpauth.nix {};
+
   semiphemeral = pkgs.python3Packages.callPackage ./pkgs/semiphemeral/default.nix {};
-  onionshare = pkgs.python3Packages.callPackage ./pkgs/onionshare/default.nix {};
+  onionshare = pkgs.python3Packages.callPackage ./pkgs/onionshare/default.nix {
+    inherit (python3Packages) flask-httpauth;
+  };
+
 
   mars-simulator = pkgs.callPackage ./pkgs/mars-simulator/default.nix {};
 }

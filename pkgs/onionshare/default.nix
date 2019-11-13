@@ -4,32 +4,36 @@
   fetchFromGitHub,
   isPy3k,
   flask,
+  flask-httpauth,
   stem,
   pyqt5,
   pycrypto,
   pysocks,
   pytest,
+  requests,
   tor,
   obfs4,
 }:
 
-buildPythonApplication {
+buildPythonApplication rec {
   pname = "onionshare";
-  version = "2.1";
+  version = "2.2";
   src = fetchFromGitHub {
     owner = "micahflee";
-    repo = "onionshare";
-    rev = "v2.1";
-    sha256 = "1lx21p12888qnbhsyin4lrnn4xizb39ldk77r71y53hn8mfxi54z";
+    repo = pname;
+    rev = "v${version}";
+    sha256 = "0m8ygxcyp3nfzzhxs2dfnpqwh1vx0aws44lszpnnczz4fks3a5j4";
   };
 
   disable = !isPy3k;
   propagatedBuildInputs = [
     flask
+    flask-httpauth
     stem
     pyqt5
     pycrypto
     pysocks
+    requests
   ];
   buildInputs = [
     tor
