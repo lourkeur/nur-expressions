@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, substituteAll, pkgconfig, libxslt, ninja, libX11, gnome3, gtk3, glib
+{ stdenv, fetchFromGitLab, substituteAll, pkgconfig, libxslt, ninja, libX11, gnome3, gtk3, glib
 , gettext, libxml2, xkeyboard_config, isocodes, meson, wayland
 , libseccomp, systemd, bubblewrap, gobject-introspection, gtk-doc, docbook_xsl, gsettings-desktop-schemas }:
 
@@ -8,9 +8,12 @@ stdenv.mkDerivation rec {
 
   outputs = [ "out" "dev" "devdoc" ];
 
-  src = fetchurl {
-    url = "mirror://gnome/sources/gnome-desktop/${stdenv.lib.versions.majorMinor version}/${pname}-${version}.tar.xz";
-    sha256 = "0bidx4626x7k2myv6f64qv4fzmxv8v475wibiz19kj8hjfr737q9";
+  src = fetchFromGitLab {
+    domain = "gitlab.gnome.org";
+    owner = "lourkeur";
+    repo = "gnome-desktop";
+    rev = "${version}%2Bimplement_130";
+    sha256 = "0s63anxggqqsy6ggy6g6jz0c4z10x3gfi66zjza96fm5pz62cqq2";
   };
 
   nativeBuildInputs = [
