@@ -24,7 +24,4 @@ rec {
 
   mars-simulator = pkgs.callPackage ./pkgs/mars-simulator/default.nix {};
 
-  gnome-desktop = pkgs.callPackage pkgs/gnome-desktop {};
-
-  ammonite = pkgs.callPackage ./pkgs/ammonite/default.nix {};
 }
