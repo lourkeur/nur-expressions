@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
     owner = "lourkeur";
     repo = "gnome-desktop";
     rev = "${version}%2Bimplement_130";
-    sha256 = "0s63anxggqqsy6ggy6g6jz0c4z10x3gfi66zjza96fm5pz62cqq2";
+    sha256 = "1yi8i5a8h9wakwj4jly39w7bycrkiial9mdxk38f8v0923m2lnbd";
   };
 
   nativeBuildInputs = [
