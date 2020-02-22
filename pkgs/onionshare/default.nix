@@ -10,6 +10,7 @@
   pycrypto,
   pysocks,
   pytest,
+  qt5,
   requests,
   tor,
   obfs4,
@@ -39,6 +40,7 @@ buildPythonApplication rec {
     tor
     obfs4
   ];
+  nativeBuildInputs = [ qt5.wrapQtAppsHook ];
   checkInputs = [
     pytest
   ];
@@ -51,6 +53,10 @@ buildPythonApplication rec {
   postPatch = "substituteAllInPlace onionshare/common.py";
 
   doCheck = false;  # need a $HOME
+
+  postInstall = ''
+    wrapQtApp $out/bin/onionshare-gui
+  '';
 
   meta = with lib; {
     description = "Securely and anonymously send and receive files";
