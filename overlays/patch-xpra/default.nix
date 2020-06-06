@@ -3,8 +3,8 @@ let
   branch = self.fetchFromGitHub {
     owner = "NixOS";
     repo = "nixpkgs";
-    rev = "66715b5007807ceda476f4ef300745a9aad8b69f";
-    sha256 = "0lvb3cjik9q524rhdb3bhdk67kcwsncqbmhi4146m5ssfg4kg9bi";
+    rev = "82ef74d0105bb2ab3ffa0cdccb4713054c5acbe8";
+    sha256 = "0pcskqcvfs7knbl6hpqldqi4vrwcp9hg73l99qhhj72v3kglz4ri";
   };
 in {
   xpra = self.callPackage "${branch}/pkgs/tools/X11/xpra" { };
