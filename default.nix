@@ -19,4 +19,6 @@ rec {
   mars-simulator = pkgs.callPackage pkgs/mars-simulator {};
 
   teck-programmer = pkgs.teck-programmer;  # alias added 2021-07-19
+
+  chromium-extensions = pkgs.callPackage pkgs/chromium-extensions {};
 }
